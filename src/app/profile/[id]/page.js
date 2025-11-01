@@ -32,6 +32,12 @@ const profiles = [
   }
 ];
 
+export async function generateStaticParams() {
+  return profiles.map(profile => ({
+    id: profile.id.toString(),
+  }));
+}
+
 const ProfileDetailPage = async ({ params }) => {
   const profile = profiles.find(p => p.id === parseInt(params.id));
 
